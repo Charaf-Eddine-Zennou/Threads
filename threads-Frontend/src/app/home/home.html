@@ -1,0 +1,7 @@
+<section class="comment-section">
+ <app-comment-form (formSubmitted)="createComment($event)"></app-comment-form>
+</section>
+
+<section class="comment-section">
+  <app-comment [comment]="comment" *ngFor="let comment of comments() "></app-comment>
+</section>

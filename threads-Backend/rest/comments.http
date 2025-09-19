@@ -1,0 +1,9 @@
+
+ ###
+POST http://localhost:3000/comments HTTP/1.1
+content-type: application/json
+
+{
+     "text": "3th commet",
+  "userId": "68923bd1e8910e9f6377beba"
+}

@@ -1,0 +1,33 @@
+<a class="card" >
+  <div class="card-content">
+    <div class="card-text">
+      <h3>{{comment.user.name}}</h3>
+      <p class="description">
+        {{comment.text}}
+      </p>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button (click)="toggleReplying()" class="btn-download">Reply</button>
+
+    <button class="likes-btn">12 likes</button>
+
+    <button class="icon-wrapper" (click)="toggleExpanded()" [class.expanded]="isExpended()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+      </svg>
+    </button>
+  </div> 
+  <section *ngIf="isReplying()"  >
+  
+        <app-comment-form (formSubmitted)="createComment($event)" placeholder="write your reply" buttonText="send"></app-comment-form>
+    
+</section>
+  <section *ngIf="isExpended()" class="nested-comments" >
+    <app-comment [comment]="nestedComment" *ngFor="let nestedComment of nestedComments()"></app-comment>
+
+
+</section>
+</a>
+
